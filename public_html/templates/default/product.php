@@ -173,9 +173,9 @@
 								</svg>
 								<span>в корзину</span>
 							</a>
-							<a data-addToCart="<?= $data['id'] ?>" data-onClick href="#" class="card-main-info__button button-darkcyan button-big button">
+							<!-- <a data-addToCart="<?= $data['id'] ?>" data-onClick href="#" class="card-main-info__button button-darkcyan button-big button">
 								купить сейчас
-							</a>
+							</a> -->
 						</div>
 					</div>
 				</div>

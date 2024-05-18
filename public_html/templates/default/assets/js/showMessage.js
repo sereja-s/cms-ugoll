@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			backgroundColor: '#4c8a3c',
 			color: 'white',
 			marginBottom: '10px',
-			padding: '25px 30px',
+			padding: '17px',
 			borderRadius: '20px'
 		};
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			backgroundColor: '#d34343',
 			color: 'white',
 			marginBottom: '10px',
-			padding: '25px 30px',
+			padding: '17px',
 			borderRadius: '20px'
 		};
 

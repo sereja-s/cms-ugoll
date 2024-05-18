@@ -12,7 +12,9 @@
 			<div class="container">
 				<div class="catalog-internal-wrap">
 
-					<p>ВАША КОРЗИНА ПУСТА</p>
+					<p style="padding-right: 20px">ВАША КОРЗИНА ПУСТА</p>
+
+					<a href="<?= $this->alias('catalog') ?>" class="cart-page__delivery-button-link" style="text-align: center; max-width: max-content;">Перейти в каталог</a>
 
 				</div>
 			</div>
@@ -175,7 +177,8 @@
 							<input type="text" name="name" placeholder="Ваше имя" value="<?= $this->setFormValues('name', 'userData') ?>">
 							<input type="tel" name="phone" placeholder="Телефон" value="<?= $this->setFormValues('phone', 'userData') ?>">
 							<input type="email" name="email" placeholder="E-mail" value="<?= $this->setFormValues('email', 'userData') ?>">
-							<textarea name="address" rows="5"><?= $this->setFormValues('address', 'userData') ?></textarea>
+							<textarea name="address" placeholder="Ваш адрес" rows="3"><?= $this->setFormValues('address', 'userData') ?></textarea>
+							<textarea name="info" placeholder="Дополнительная информация" rows="5"><?= $this->setFormValues('info', 'userData') ?></textarea>
 
 							<div class="amount-pay-wrapp">
 								Сумма к оплате:

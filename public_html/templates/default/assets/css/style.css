@@ -524,7 +524,7 @@ input[type='email'] {
 }
 
 .h1 {
-	color: #006d77;
+	color: #1F2421;
 	font-size: 32px;
 	font-weight: 700;
 	line-height: 48px;
@@ -2247,6 +2247,7 @@ input[type='email'] {
 
 .card-item__tabs_image {
 	text-align: center;
+	padding-right: 10px;
 }
 
 .card-item__tabs_image img {
@@ -5271,12 +5272,12 @@ input[type='email'] {
 	padding-bottom: 5px;
 }
 
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
 	.card-main-info__table-item {
 		font-size: 14px;
 
 	}
-}
+} */
 
 .card-main-info__more {
 	margin-left: 16px;
@@ -5702,17 +5703,16 @@ input[type='email'] {
 .card-tabs-item-wrapper {
 	display: flex;
 	flex-direction: column;
-
 	color: #2D3033;
-	font-size: 16px;
-	font-weight: 600;
-	line-height: 36px;
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 25px;
 	letter-spacing: .16px;
 }
 
 @media screen and (max-width: 480px) {
 	.card-tabs-item-wrapper {
-		font-size: 14px;
+		font-size: 18px;
 	}
 }
 
@@ -7800,4 +7800,27 @@ input[type='email'] {
 .arrow:active {
 	-webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================================================================================================= */
+.cart-page__delivery-button-link {
+	display: block;
+	width: 100%;
+	background-color: #437fc8;
+	border-radius: 5px;
+	cursor: pointer;
+	border: none;
+	padding: 10px;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 25px;
+	color: #fff;
+	transition: 0.3s ease;
+	border: 2px solid #437fc8;
+	text-decoration: none;
+}
+
+.cart-page__delivery-button-link:hover {
+	background-color: #fff;
+	color: #437fc8;
 }
