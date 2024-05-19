@@ -118,7 +118,7 @@ class Settings
 	private $translate = [
 		// каждое поле тоже представляет собой массив, в котором можно указать два элемента (название элемента, комментарий элемента)
 		'name' => ['Название', '(Не более 120 символов)'],
-		'keywords' => ['Ключевые слова', '(Не более 75 символов)'],
+		'keywords' => ['Ключевые слова'],
 		'content' => ['Описание', '(Текстовая часть, фотографии, картинки к описанию)'],
 		'description' => ['SEO описание'],
 		'phone' => ['Телефон'],
@@ -187,8 +187,8 @@ class Settings
 		'discount' => ['int' => true],
 		'login' => ['empty' => true, 'trim' => true],
 		'password' => ['crypt' => true, 'empty' => true],
-		'keywords' => ['count' => 70, 'trim' => true],
-		'description' => ['count' => 160, 'trim' => true]
+		'keywords' => ['count' => 255, 'trim' => true],
+		'description' => ['count' => 255, 'trim' => true]
 	];
 
 	// Объявим метод, который будет возвращать указанные выше свойства

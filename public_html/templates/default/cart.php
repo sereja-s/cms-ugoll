@@ -180,6 +180,8 @@
 							<textarea name="address" placeholder="Ваш адрес" rows="3"><?= $this->setFormValues('address', 'userData') ?></textarea>
 							<textarea name="info" placeholder="Дополнительная информация" rows="5"><?= $this->setFormValues('info', 'userData') ?></textarea>
 
+							<label><input type="checkbox" required> Согласен на обработку персональных данных</label>
+
 							<div class="amount-pay-wrapp">
 								Сумма к оплате:
 								<span class="amount-pay" data-totalSum><?= $this->cart['total_sum'] ?> руб.</span>
