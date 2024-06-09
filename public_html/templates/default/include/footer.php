@@ -93,9 +93,13 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="footer__bottom" style="display: flex; justify-content: center; padding-bottom: 10px;">
-			<div class="footer__bottom_copy"><a href="<?= $this->set['external_alias'] ?>" style="text-decoration: none;">SaitPostroen <?= $this->set['number_of_years'] ?></a></div>
+			<div class="footer__bottom_copy">
+				<div style="text-align: center;"><?= date('Y') ?></div><br><a href="<?= $this->set['external_alias'] ?>" style="text-decoration: none;">сделано в SaitPostroen</a>
+			</div>
 		</div>
+
 	</div>
 </footer>
 

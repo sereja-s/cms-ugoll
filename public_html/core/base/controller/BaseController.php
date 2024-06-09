@@ -39,6 +39,8 @@ abstract class BaseController
 	protected $scripts;
 
 	protected $userId;
+	protected $userData;
+	protected $userModel;
 
 	/** 
 	 * свойство, в котором будут находиться данные, которые пришли из БД (если будет подключаться шаблон редактирования) +Выпуск №67

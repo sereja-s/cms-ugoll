@@ -72,25 +72,25 @@ class Settings
 	private $messages = 'core/base/messages/';
 
 	// свойство с таблицей по умолчанию
-	private $defaultTable = 'sales';
+	private $defaultTable = 'goods';
 
 	// свойство в котором хранится путь к шаблонам админки
 	private $formTemplates = PATH . 'core/admin/view/include/form_templates/';
 
 	// свойство с таблицами, названия которых будут показаны в боковом меню админки
 	private $projectTables = [
-		'sales' => ['name' => 'Акции'],
+		'settings' => ['name' => 'Настройки (о сайте)'],
 		'catalog' => ['name' => 'Каталог (меню)'],
 		'filters' => ['name' => 'Фильтры'],
 		'goods' => ['name' => 'Товары'],
 		'news' => ['name' => 'Новости'],
 		'information' => ['name' => 'Информация (меню)'],
-		'settings' => ['name' => 'Настройки (о сайте)'],
+		'sales' => ['name' => 'Акции'],
 		'advantages' => ['name' => 'Преимущества'],
 		'socials' => ['name' => 'Соц.сети'],
 		'payments' => ['name' => 'Оплата'],
 		'delivery' => ['name' => 'Доставка'],
-		'users' => ['name' => 'Пользователи'],
+		/* 'users' => ['name' => 'Пользователи'], */
 	];
 	// свойство с таблицами в которых будет происходить поиск
 	private $searchProjectTables = [
@@ -176,7 +176,7 @@ class Settings
 	// (по умолчанию содержимое разделов адмики занимает левый блок: vg-rows) 
 	private $blockNeedle = [
 		'vg-rows' => [],
-		'vg-img' => ['img', 'main_img', 'gallery_img', 'img_years', 'number_of_years', 'promo_img'],
+		'vg-img' => ['img', 'filters', 'gallery_img', 'number_of_years', 'promo_img'],
 		'vg-content' => ['content']
 	];
 

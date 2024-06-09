@@ -6,25 +6,69 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, shrink-to-fit=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<meta name="description" content="<?= $this->set['description'] ?>">
-	<meta name="keywords" content="<?= $this->set['keywords'] ?>">
+	<!-- <title>Купить уголь, антрацит, дрова, песок, щебень, шлак в Донецке, Макеевке, ДНР | ТДК УГЛЕТРАКТ</title> -->
+	<title><?php if ($this->getController() === 'index') {
 
-	<meta property="og:title" content="<?= $this->set['name'] ?>" />
-	<meta property="og:description" content="<?= $this->set['description'] ?>" />
-	<meta property="og:image" content="<?= $this->img($this->set['img']) ?>" />
+					echo "ТДК УГЛЕТРАКТ в Донецке Макеевке ДНР";
+				} elseif ($this->getController() === 'catalog') {
 
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+					if ($data['name'] !== 'Каталог') {
+
+						echo "Купить " . $data['name'] . " в Донецке Макеевке ДНР | ТДК УГЛЕТРАКТ";
+					} else {
+						echo "Купить уголь, антрацит, дрова, песок, щебень, шлак в Донецке Макеевке ДНР";
+					}
+				} elseif ($this->getController() === 'product') {
+					if (!empty($data)) {
+						echo "Купить " . $data['name'] . " в Донецке Макеевке ДНР | ТДК УГЛЕТРАКТ";;
+					} else {
+						echo "ТДК УГЛЕТРАКТ | продажа угля, дров, песка, щебня, шлака в Донецке Макеевке ДНР";
+					}
+				} else {
+
+					echo "Выгодная цена на уголь, антрацит, дрова, песок, щебень, шлак в Донецке Макеевке ДНР";
+				} ?></title>
+
+	<meta name="description" content="<?php if ($this->getController() === 'index') {
+
+														echo "Наша компания специализируется на продаже угля антрацита, дров, а также песка, щебеня, шлака, цемента и работает с лучшими поставщиками угольной продукции и сыпучих материалов Донбасса и России, тел. ", $this->set['phone'];
+													} elseif ($this->getController() === 'catalog') {
+
+														if ($data['name'] !== 'Каталог') {
+
+															echo "Выгодно купить " . $data['name'] . " в Донецке, Макеевке, ДНР в ТДК УГЛЕТРАКТ, тел. ", $this->set['phone'];
+														} else {
+															echo "Купить уголь, антрацит, дрова, песок, щебень, шлак в Донецке, Макеевке, ДНР по лучшей цене с доставкой. Мы работаем напрямую от производителя, тел. ", $this->set['phone'];
+														}
+													} elseif ($this->getController() === 'product') {
+														if (!empty($data)) {
+															echo "Купить по выгодной цене " . $data['name'] . ", цена " . $data['price'] . "руб." . " в Донецке, Макеевке, ДНР в ТДК УГЛЕТРАКТ, тел. ", $this->set['phone'];
+														} else {
+															echo "ТДК УГЛЕТРАКТ | продажа угля, дров, песка, щебня, шлака в Донецке, Макеевке, ДНР, тел. ", $this->set['phone'];
+														}
+													} else {
+
+														echo "Выгодная цена на уголь, антрацит, дрова, песок, щебень, шлак в Донецке, Макеевке, ДНР. Широкий ассортимент, тел. ", $this->set['phone'];
+													} ?>" />
+	<meta name="keywords" content="купить, уголь, антрацит, дрова, песок, щебень, шлак, цемент, Донецк, Макеевка, ДНР, цена, продажа, мешок, в мешках, россыпью, доставка" />
+
+	<!-- Совет. Используйте формат 120 × 120 пикселей или SVG, чтобы сделать логотип сайта более четким и заметным в сервисах Яндекса -->
+
+	<!-- <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon"> -->
+	<!-- <link rel="icon" href="https://example.com/favicon.svg" type="image/svg+xml"> -->
+	<link rel="icon" href="https://tdkugletrakt.ru/favicon.ico" type="image/x-icon">
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"> -->
 	<link rel="manifest" href="/favicon/site.webmanifest">
 	<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
 
-	<title><?= $this->set['name'] ?></title>
-
+	<meta property="og:title" content="<?= $this->set['name'] ?>" />
+	<meta property="og:description" content="<?= $this->set['description'] ?>" />
+	<meta property="og:image" content="<?= $this->img($this->set['img']) ?>" />
 
 	<?php $this->getStyles() ?>
 
@@ -52,7 +96,7 @@
 								<li class="header__nav-parent">
 									<a href="<?= $this->alias('catalog') ?>"><span>Каталог</span></a>
 
-									<ul class="header__nav-sublist">
+									<ul style="z-index: 999" class="header__nav-sublist">
 
 										<?php foreach ($this->menu['catalog'] as $item) : ?>
 
@@ -67,11 +111,15 @@
 
 							<?php endif; ?>
 
+						</ul>
+
+						<ul style="flex-wrap:wrap" class="header__nav-list">
+
 							<?php if (!empty($this->menu['information'])) : ?>
 
 								<?php foreach ($this->menu['information'] as $item) : ?>
 
-									<li class="">
+									<li style="padding-bottom: 10px;">
 										<a href="<?= $this->alias(['information' => $item['alias']]) ?>"><span><?= $item['name'] ?></span></a>
 										<ul class="header__nav-sublist">
 
@@ -86,7 +134,7 @@
 
 								<?php if (!empty($news)) : ?>
 
-									<li class="">
+									<li>
 										<a href="#news"><span>Новости</span></a>
 										<ul class="header__nav-sublist">
 										</ul>
@@ -132,6 +180,7 @@
 					<?php endif; ?>
 
 				</div>
+
 				<div class="header__menu _hidden">
 					<div class="header__menu_close close_modal"></div>
 					<ul class="header__menu_burger">
@@ -170,11 +219,25 @@
 
 							<?php foreach ($this->menu['information'] as $item) : ?>
 
-								<li style="line-height: 25px;">
+								<li style="line-height: 25px; padding-bottom: 15px;">
 									<a href="<?= $this->alias(['information' => $item['alias']]) ?>"><span><?= $item['name'] ?></span></a>
 								</li>
 
 							<?php endforeach; ?>
+
+						<?php endif; ?>
+
+						<?php if ($this->getController() === 'index') : ?>
+
+							<?php if (!empty($news)) : ?>
+
+								<li>
+									<a href="#news"><span>Новости</span></a>
+									<ul class="header__nav-sublist">
+									</ul>
+								</li>
+
+							<?php endif; ?>
 
 						<?php endif; ?>
 

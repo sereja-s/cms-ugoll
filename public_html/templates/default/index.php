@@ -40,7 +40,7 @@
 
 			</div>
 
-			<div class="slider__pagination swiper-pagination"></div>
+			<!-- <div class="slider__pagination swiper-pagination"></div> -->
 			<div class="slider__controls controls _prev swiper-button-prev">
 				<svg>
 					<use xlink:href="<?= PATH . TEMPLATE ?>assets/img/icons.svg#arrow"></use>
@@ -54,6 +54,35 @@
 	</section>
 
 <?php endif; ?>
+
+
+
+<div><a class="catalog-filter-wrap__remove button1 but-tel" href="tel:<?= preg_replace('/[^+\d]/', '', $this->set['phone']) ?>">Получить консультацию</a></div>
+
+<style>
+	.but-tel {
+		font-size: 30px;
+		border-radius: 20px;
+		margin-top: 25px;
+		margin-left: auto;
+		margin-bottom: 90px;
+		margin-right: auto;
+	}
+
+	@media (max-width: 510px) {
+		.but-tel {
+			margin-left: 15px;
+			max-width: 75vw;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: 425px) {
+		.but-tel {
+			font-size: 25px;
+		}
+	}
+</style>
 
 
 <?php if (!empty($this->menu['catalog'])) : ?>

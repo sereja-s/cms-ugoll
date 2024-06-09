@@ -1,20 +1,21 @@
-<?php if (!empty($this->menu['information'])) : ?>
+<div class="container">
 
-	<div class="container">
+	<?= $this->breadcrumbs ?>
 
-		<?= $this->breadcrumbs ?>
+	<?php if (!empty($this->menu['information'])) : ?>
 
-		<h1 class="page-title h1"><?= $this->menu['information'][0]['name'] ?></h1>
-	</div>
+		<?php foreach ($this->menu['information'] as $item) : ?>
 
-	<section class="catalog-internal">
-		<div class="container">
+			<?php if ($item['alias'] === ($this->parameters['alias'])) : ?>
 
+				<h1 class="page-title h1"><?= $item['name'] ?></h1>
 
-			<?= $this->menu['information'][0]['content'] ?>
+				<?= $item['content'] ?>
 
+			<?php endif; ?>
 
-		</div>
-	</section>
+		<?php endforeach; ?>
 
-<?php endif; ?>
+	<?php endif; ?>
+
+</div>
