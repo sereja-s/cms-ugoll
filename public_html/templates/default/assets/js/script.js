@@ -171,7 +171,7 @@ $(function () {
 	//------------------- Horizontal Scroll -------------------//
 	var controller = new ScrollMagic.Controller();
 
-	if ($(window).width() > 1024) {
+	/* if ($(window).width() > 1024) {
 		var timeline = new TimelineMax();
 		timeline
 			.to($('.horizontal__wrapper'), 1, { xPercent: '-50' });
@@ -185,7 +185,7 @@ $(function () {
 			.setTween(timeline)
 			.setPin(".horizontal__wrapper")
 			.addTo(controller);
-	}
+	} */
 
 
 

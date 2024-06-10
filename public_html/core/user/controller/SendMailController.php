@@ -67,8 +67,8 @@ class SendMailController extends BaseUser
 			$mail->isSMTP();                                            // Отправка с помощью SMTP
 			$mail->Host       = 'smtp.yandex.ru';                     // Установите SMTP-сервер для отправки
 			$mail->SMTPAuth   = true;                                   // Включить аутентификацию SMTP
-			$mail->Username   = 'tdkugletrakt@yandex.ru';                     //SMTP username
-			$mail->Password   = 'bmnimnvsapvdeylv';                               //SMTP password
+			$mail->Username   = '';                     //SMTP username
+			$mail->Password   = '';                               //SMTP password
 			$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            // Включить неявное шифрование TLS
 			$mail->Port       = 465;                                    // TCP порт для подключения; используйте 587, 
 			// если вы установили `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`

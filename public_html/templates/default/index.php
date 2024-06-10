@@ -24,9 +24,12 @@
 								<?php endforeach; ?>
 
 							</div>
+
+							<div class="slider__item-prev-text"><?= $item['short_content'] ?></div>
+
 							<div class="slider__item-text">
 
-								<?= $this->clearStr($item['short_content']) ?>
+								<?= $this->clearStr($item['content']) ?>
 
 							</div>
 
