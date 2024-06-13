@@ -86,6 +86,7 @@ class Settings
 		'news' => ['name' => 'Новости'],
 		'information' => ['name' => 'Информация (меню)'],
 		'sales' => ['name' => 'Акции'],
+		'advantage' => ['name' => 'Достоинства'],
 		'advantages' => ['name' => 'Преимущества'],
 		'socials' => ['name' => 'Соц.сети'],
 		'payments' => ['name' => 'Оплата'],

@@ -58,6 +58,30 @@
 
 <?php endif; ?>
 
+<?php if (!empty($advantage)) : ?>
+
+	<section class="page__advantages advantage">
+		<div class="advantages__container container">
+
+			<?php foreach ($advantage as $item) : ?>
+
+				<div class="advantage__item">
+					<div class="advantages__icon">
+
+						<img src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>">
+
+					</div>
+					<h3 class="advantages__title"><?= $item['name'] ?></h3>
+					<div class="advantages__text"><?= $item['short_content'] ?></div>
+				</div>
+
+			<?php endforeach; ?>
+
+		</div>
+	</section>
+
+<?php endif; ?>
+
 
 
 <div><a class="catalog-filter-wrap__remove button1 but-tel" href="tel:<?= preg_replace('/[^+\d]/', '', $this->set['phone']) ?>">Получить консультацию</a></div>

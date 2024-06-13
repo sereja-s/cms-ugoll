@@ -20,6 +20,12 @@ class IndexController extends BaseUser
 			'order' => ['menu_position']
 		]);
 
+		$advantage = $this->model->get('advantage', [
+			'where' => ['visible' => 1],
+			'order' => ['menu_position'],
+			'limit' => 4
+		]);
+
 		// Выпуск №128 - массив преимуществ
 		$advantages = $this->model->get('advantages', [
 			'where' => ['visible' => 1],
@@ -72,6 +78,6 @@ class IndexController extends BaseUser
 		//$goods = $this->model->getGoods();
 
 		// собираем переменные в массив и возвращаем в шаблон, что бы они стали доступными при выводе
-		return compact('sales', 'arrHits', 'goods', 'advantages', 'news');
+		return compact('sales', 'arrHits', 'goods', 'advantage', 'advantages', 'news');
 	}
 }
