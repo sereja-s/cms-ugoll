@@ -84,7 +84,7 @@
 
 
 
-<div><a class="catalog-filter-wrap__remove button1 but-tel" href="tel:<?= preg_replace('/[^+\d]/', '', $this->set['phone']) ?>">Получить консультацию</a></div>
+<!-- <div><a class="catalog-filter-wrap__remove button1 but-tel" href="tel:<?= preg_replace('/[^+\d]/', '', $this->set['phone']) ?>">Получить консультацию</a></div> -->
 
 <style>
 	.but-tel {
@@ -110,6 +110,8 @@
 		}
 	}
 </style>
+
+<div><a class="js-callback catalog-filter-wrap__remove button1 but-tel">Получать выгодные предложения</a></div>
 
 
 <?php if (!empty($this->menu['catalog'])) : ?>

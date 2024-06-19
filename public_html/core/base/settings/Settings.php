@@ -102,7 +102,7 @@ class Settings
 	// свойство: массив шаблонов
 	private $templateArr = [
 		// массив вида: 'название шаблона' => массив с полями для которых должен быть подключен соответствующий шаблон
-		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password'],
+		'text' => ['name', 'title', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password'],
 		'textarea' => ['content', 'keywords', 'address', 'description', 'short_content'],
 		'radio' => ['visible', 'show_top_menu', 'hit', 'sale', 'new', 'hot'],
 		'checkboxlist' => ['filters', 'filters_test'], // указали, что хотим подключить фильтры к связанной таблице: 
@@ -119,9 +119,10 @@ class Settings
 	private $translate = [
 		// каждое поле тоже представляет собой массив, в котором можно указать два элемента (название элемента, комментарий элемента)
 		'name' => ['Название', '(Не более 120 символов)'],
-		'keywords' => ['Ключевые слова'],
+		'title' => ['SEO заголовок', '(заполнить обязательно)'],
+		'keywords' => ['Ключевые слова', '(заполнить обязательно)'],
 		'content' => ['Описание', '(Текстовая часть, фотографии, картинки к описанию)'],
-		'description' => ['SEO описание'],
+		'description' => ['SEO описание', '(заполнить обязательно)'],
 		'phone' => ['Телефон'],
 		'email' => ['Электронная почта'],
 		'address' => ['Адрес'],

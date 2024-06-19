@@ -7,50 +7,10 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 	<!-- <title>Купить уголь, антрацит, дрова, песок, щебень, шлак в Донецке, Макеевке, ДНР | ТДК УГЛЕТРАКТ</title> -->
-	<title><?php if ($this->getController() === 'index') {
+	<title><?= $title ?? $this->set['title'] ?></title>
 
-					echo "ТДК УГЛЕТРАКТ в Донецке Макеевке ДНР";
-				} elseif ($this->getController() === 'catalog') {
-
-					if ($data['name'] !== 'Каталог') {
-
-						echo "Купить " . $data['name'] . " в Донецке Макеевке ДНР | ТДК УГЛЕТРАКТ";
-					} else {
-						echo "Купить уголь, антрацит, дрова, песок, щебень, шлак в Донецке Макеевке ДНР";
-					}
-				} elseif ($this->getController() === 'product') {
-					if (!empty($data)) {
-						echo "Купить " . $data['name'] . " в Донецке Макеевке ДНР | ТДК УГЛЕТРАКТ";;
-					} else {
-						echo "ТДК УГЛЕТРАКТ | продажа угля, дров, песка, щебня, шлака в Донецке Макеевке ДНР";
-					}
-				} else {
-
-					echo "Выгодная цена на уголь, антрацит, дрова, песок, щебень, шлак в Донецке Макеевке ДНР";
-				} ?></title>
-
-	<meta name="description" content="<?php if ($this->getController() === 'index') {
-
-														echo "Наша компания специализируется на продаже угля антрацита, дров, а также песка, щебеня, шлака, цемента и работает с лучшими поставщиками угольной продукции и сыпучих материалов Донбасса и России, тел. ", $this->set['phone'];
-													} elseif ($this->getController() === 'catalog') {
-
-														if ($data['name'] !== 'Каталог') {
-
-															echo "Выгодно купить " . $data['name'] . " в Донецке, Макеевке, ДНР в ТДК УГЛЕТРАКТ, тел. ", $this->set['phone'];
-														} else {
-															echo "Купить уголь, антрацит, дрова, песок, щебень, шлак в Донецке, Макеевке, ДНР по лучшей цене с доставкой. Мы работаем напрямую от производителя, тел. ", $this->set['phone'];
-														}
-													} elseif ($this->getController() === 'product') {
-														if (!empty($data)) {
-															echo "Купить по выгодной цене " . $data['name'] . ", цена " . $data['price'] . "руб." . " в Донецке, Макеевке, ДНР в ТДК УГЛЕТРАКТ, тел. ", $this->set['phone'];
-														} else {
-															echo "ТДК УГЛЕТРАКТ | продажа угля, дров, песка, щебня, шлака в Донецке, Макеевке, ДНР, тел. ", $this->set['phone'];
-														}
-													} else {
-
-														echo "Выгодная цена на уголь, антрацит, дрова, песок, щебень, шлак в Донецке, Макеевке, ДНР. Широкий ассортимент, тел. ", $this->set['phone'];
-													} ?>" />
-	<meta name="keywords" content="купить, уголь, антрацит, дрова, песок, щебень, шлак, цемент, Донецк, Макеевка, ДНР, цена, продажа, мешок, в мешках, россыпью, доставка" />
+	<meta name="description" content="<?= $description ?? $this->set['description'] ?>" />
+	<meta name="keywords" content="<?= $keywords ?? $this->set['keywords'] ?>" />
 
 	<!-- Совет. Используйте формат 120 × 120 пикселей или SVG, чтобы сделать логотип сайта более четким и заметным в сервисах Яндекса -->
 
@@ -87,6 +47,7 @@
 					<div class="header__contacts">
 						<div><a href="mailto:<?= $this->set['email'] ?>"><?= $this->set['email'] ?></a></div>
 						<div><a href="tel:<?= preg_replace('/[^+\d]/', '', $this->set['phone']) ?>"><?= $this->set['phone'] ?></a></div>
+						<div><a class="js-callback">Связаться с нами</a></div>
 					</div>
 					<nav class="header__nav">
 						<ul class="header__nav-list">
@@ -163,6 +124,12 @@
 							<span class="burger"></span>
 							<span class="burger-desc">меню</span>
 						</div>
+					</div>
+
+					<div class="header__sidebar_btn">
+						<a href="tel:<?= preg_replace('/[^+\d]/', '', $this->set['phone']) ?>">
+							<img src="<?= PATH . TEMPLATE ?>/assets/img/phone.png" alt="phone">
+						</a>
 					</div>
 
 					<?php if (!empty($this->socials)) : ?>
@@ -247,12 +214,13 @@
 				<div class="header__callback _hidden">
 					<div class="header__callback_close close_modal"></div>
 					<div class="header__callback_header">
-						Связаться с нами
+						Подписаться на выгодные предложения
 					</div>
 					<form class="header__callback_form" method="POST" <?= $this->alias('send-mail') ?>>
-						<input type="text" class="input-text header__callback_input" placeholder="Ваше имя">
-						<input type="email" class="input-text header__callback_input" placeholder="E-mail">
-						<input type="text" class="input-text header__callback_input js-mask-phone" placeholder="Телефон">
+						<input type="text" name="name" class="input-text header__callback_input" placeholder="Ваше имя">
+						<input type="email" name="email" class="input-text header__callback_input" placeholder="E-mail">
+						<input type="tel" name="phone" class="input-text header__callback_input js-mask-phone" placeholder="Телефон">
+						<textarea name="info" rows="5" placeholder="Интересует уголь, дрова, песок, щебень, шлак или цемент ?"></textarea>
 						<div class="header__callback_privacy">
 							<label class="checkbox">
 								<input type="checkbox" />

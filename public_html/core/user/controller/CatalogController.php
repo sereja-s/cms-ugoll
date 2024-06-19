@@ -52,9 +52,15 @@ class CatalogController extends BaseUser
 
 			// Выпуск №144
 			$where['parent_id'] = $data['id'];
+			$title = "Купить " . $data['name'] . " в ДНР, ЛНР от производителя в ТДК УГЛЕТРАКТ";
+			$description = $data['description'] . " заказать в Донецке, Макеевке и городах ДНР, ЛНР, лучшее качество по выгодной цене с доставкой в ТДК УГЛЕТРАКТ";
+			$keywords = $data['keywords'] ?? $data['name'] . " купить, доставка, Донецк, Макеевка, ДНР, ЛНР, цена, скидки";
 		} else {
 
 			$data['name'] = 'Каталог';
+			$title = "Продажа угля, дров и строительных сыпучих материалов в Донецке, Макеевке, ДНР, ЛНР";
+			$description = "На сайте компании ТДК УГЛЕТРАКТ Вы можете заказать уголь любых марок, дрова, песок, шлак, щебень, цемент от производителя по лучшей цене в ДНР. Заходите на сайт в удобное для Вас время, выбирайте необходимый товар из широкого ассортимента, оформляйте заказ и мы доставим его по адресу. Мы экономим ваше время, средства и заинтересованы в дальнейшем сотрудничестве.";
+			$keywords = "каталог, продукция, уголь, антрацит, песок, щебень, шлак, цемент, дрова, Донецк, Макеевка, ДНР, ЛНР";
 		}
 
 		// +Выпуск №131
@@ -87,7 +93,7 @@ class CatalogController extends BaseUser
 		// Выпуск №136
 		$pages = $this->model->getPagination();
 
-		return compact('data', 'catalogFilters', 'catalogPrices', 'goods', 'order', 'quantities', 'pages');
+		return compact('data', 'title', 'description', 'keywords', 'catalogFilters', 'catalogPrices', 'goods', 'order', 'quantities', 'pages');
 	}
 
 

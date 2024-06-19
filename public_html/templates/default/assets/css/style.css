@@ -762,7 +762,7 @@ input[type='email'] {
 
 @media screen and (max-width: 1618px) {
 	.header__contacts {
-		width: 450px;
+		/* width: 450px; */
 		margin-top: 0;		
 	}
 }
@@ -772,7 +772,7 @@ input[type='email'] {
 	transition: .3s
 }
 
-/* .header__contacts div:last-child a::after {
+.header__contacts div:last-child a::after {
 	content: '';
 	width: 100%;
 	height: 1px;
@@ -782,7 +782,7 @@ input[type='email'] {
 	top: 10px;
 	left: 0;
 	transition: .3s
-} */
+}
 
 .header__contacts div:last-child a:hover {
 	color: #D4DDE1

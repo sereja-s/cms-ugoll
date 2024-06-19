@@ -30,6 +30,12 @@ class ProductController extends BaseUser
 
 		$data = array_shift($data);
 
+
+		$title = "Купить " . $data['name'] . " в ДНР, ЛНР от производителя в ТДК УГЛЕТРАКТ";
+		$description = "Выгодная цены на " . $data['name'] . " в Донецке, Макеевке, ДНР, ЛНР — " . $data['price'] . " руб. в ТДК УГЛЕТРАКТ";
+		$keywords = $data['keywords'] ?? $data['name'] . " купить, доставка, Донецк, Макеевка, ДНР, ЛНР, цена";
+
+
 		// Выпуск №138 (пункт меню и таб в карточке товара: доставка и оплата)
 		$deliveryInfo = $this->model->get('information', [
 			'where' => ['visible' => 1, 'name' => 'доставка', ' name' => 'оплата'],
@@ -42,6 +48,6 @@ class ProductController extends BaseUser
 
 		$deliveryInfo && $deliveryInfo = $deliveryInfo[0];
 
-		return compact('data', 'deliveryInfo');
+		return compact('data', 'deliveryInfo', 'title', 'description', 'keywords');
 	}
 }
