@@ -189,7 +189,6 @@ class OrdersController extends BaseUser
 		}
 
 
-
 		// Интернет магазин с нуля на php Выпуск №150 | Пользовательская часть | сохранение товаров заказа 
 		// Выпуск №151 | Пользовательская часть | подготовка почтовых шаблонов
 		if (!($goods = $this->setOrdersGoods($order))) {
@@ -278,7 +277,6 @@ class OrdersController extends BaseUser
 
 	protected function sendOrderEmail(array $orderData)
 	{
-
 		// Интернет магазин с нуля на php Выпуск №151 | Пользовательская часть | подготовка почтовых шаблонов
 		$dir = TEMPLATE . 'include/orderTemplates/';
 

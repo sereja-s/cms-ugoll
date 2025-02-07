@@ -762,6 +762,7 @@ abstract class BaseAdmin extends BaseController
 		return $except;
 	}
 
+
 	/** 
 	 * Метод создания файлов
 	 * (метод ничего не возвращает, а просто заполняет свойство: $fileArray, которое в методе: protected function editData() передаём в модель)

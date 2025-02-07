@@ -7,6 +7,7 @@ trait ValidationHelper
 {
 	/** 
 	 * Метод валидации формы на пустое поле
+	 * 1- значение. 2- ответ
 	 */
 	protected function emptyField($value, $answer)
 	{
@@ -18,6 +19,18 @@ trait ValidationHelper
 		}
 
 		return $value;
+	}
+
+	protected function russianField($value, $answer)
+	{
+		$value = $this->clearStr($value);
+
+		if (preg_match('/^[^a-zA-Z]+$/', $value)) {
+
+			return $value;
+		}
+
+		$this->sendError('Позвоните нам или заполните поле: ' . $answer);
 	}
 
 	/** 
@@ -46,6 +59,11 @@ trait ValidationHelper
 			$value = preg_replace('/^8/', '7', $value);
 		}
 
+		if (substr($value, 0, 1) !== '7') {
+
+			$this->sendError('Некорректный ' . $answer);
+		}
+
 		return $value;
 	}
 
@@ -55,10 +73,14 @@ trait ValidationHelper
 		$value = $this->clearStr($value);
 
 		// ^ - начало строки;  \w - любая цифра, буква или знак подчеркивания
-		if (!preg_match('/^[\w\-\.]+@[\w\-]+\.[\w\-]+/', $value)) {
+		if (!preg_match('/^[\w\-\.]+@(yandex.ru|mail.ru)/', $value)) {
 
 			$this->sendError('Некорректный формат поля ' . $answer);
 		}
+		/* if (!preg_match('/^[\w\-\.]+@[\w\-]+\.[\w\-]+/', $value)) {
+
+			$this->sendError('Некорректный формат поля ' . $answer);
+		} */
 
 		return $value;
 	}

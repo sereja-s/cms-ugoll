@@ -111,7 +111,7 @@
 	}
 </style>
 
-<div><a class="js-callback catalog-filter-wrap__remove button1 but-tel">Получать выгодные предложения</a></div>
+<div><a class="js-callback catalog-filter-wrap__remove button1 but-tel">Получить выгодное предложение</a></div>
 
 
 <?php if (!empty($this->menu['catalog'])) : ?>

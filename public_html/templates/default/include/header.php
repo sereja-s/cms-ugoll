@@ -131,6 +131,11 @@
 							<img src="<?= PATH . TEMPLATE ?>/assets/img/phone.png" alt="phone">
 						</a>
 					</div>
+					<div class="header__sidebar_btn">
+						<a class="js-callback">
+							<img src="<?= PATH . TEMPLATE ?>/assets/img/email.png" alt="phone" style="max-width: 47px;">
+						</a>
+					</div>
 
 					<?php if (!empty($this->socials)) : ?>
 
@@ -214,16 +219,16 @@
 				<div class="header__callback _hidden">
 					<div class="header__callback_close close_modal"></div>
 					<div class="header__callback_header">
-						Подписаться на выгодные предложения
+						Оставьте сообщение и мы вам перезвоним
 					</div>
-					<form class="header__callback_form" method="POST" <?= $this->alias('send-mail') ?>>
-						<input type="text" name="name" class="input-text header__callback_input" placeholder="Ваше имя">
-						<input type="email" name="email" class="input-text header__callback_input" placeholder="E-mail">
-						<input type="tel" name="phone" class="input-text header__callback_input js-mask-phone" placeholder="Телефон">
-						<textarea name="info" rows="5" placeholder="Интересует уголь, дрова, песок, щебень, шлак или цемент ?"></textarea>
+					<form class="header__callback_form" method="post" action="<?= $this->alias('contactform') ?>">
+						<input type="text" name="name" class="input-text header__callback_input" placeholder="Ваше имя" value="<?= $this->setFormValues('name', 'userData') ?>">
+						<input type="email" name="email" class="input-text header__callback_input" placeholder="E-mail" value="<?= $this->setFormValues('email', 'userData') ?>">
+						<input type="tel" name="phone" class="input-text header__callback_input" placeholder="Телефон" value="<?= $this->setFormValues('phone', 'userData') ?>">
+						<textarea name="info" rows="5" placeholder="Укажите интересуемый товар (уголь, дрова, песок, щебень, шлак или цемент) и количество"><?= $this->setFormValues('info', 'userData') ?></textarea>
 						<div class="header__callback_privacy">
 							<label class="checkbox">
-								<input type="checkbox" />
+								<input type="checkbox" required>
 								<div class="checkbox__text">Соглашаюсь с правилами обработки персональных данных</div>
 							</label>
 						</div>
