@@ -145,6 +145,29 @@
 <?php endif; ?>
 
 
+
+<div class="valka">
+
+	<div class="advantages__name">валка деревьев</div>
+
+	<a href="">
+		<img src="<?= PATH . TEMPLATE ?>/assets/img/валка деревьев.webp" alt="phone" style="">
+	</a>
+</div>
+<style>
+	.valka a img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: auto;
+		max-width: 55%;
+
+	}
+</style>
+
+
+
+
 <?php if (!empty($goods) && !empty($arrHits)) : ?>
 
 	<section class="offers">

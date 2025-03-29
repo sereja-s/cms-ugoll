@@ -91,6 +91,9 @@ class Settings
 		'socials' => ['name' => 'Соц.сети'],
 		'payments' => ['name' => 'Оплата'],
 		'delivery' => ['name' => 'Доставка'],
+		'section_top' => ['name' => 'Валка деревьев (главное)'],
+		'questions' => ['name' => 'Доп. информация'],
+		'services' => ['name' => 'Фото наших работ']
 		/* 'users' => ['name' => 'Пользователи'], */
 	];
 	// свойство с таблицами в которых будет происходить поиск
@@ -102,8 +105,8 @@ class Settings
 	// свойство: массив шаблонов
 	private $templateArr = [
 		// массив вида: 'название шаблона' => массив с полями для которых должен быть подключен соответствующий шаблон
-		'text' => ['name', 'title', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password'],
-		'textarea' => ['content', 'keywords', 'address', 'description', 'short_content'],
+		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password'],
+		'textarea' => ['content', 'keywords', 'address', 'description', 'short_content', 'title'],
 		'radio' => ['visible', 'show_top_menu', 'hit', 'sale', 'new', 'hot'],
 		'checkboxlist' => ['filters', 'filters_test'], // указали, что хотим подключить фильтры к связанной таблице: 
 		// товары (они прописаны в массиве: в свойстве: private $manyToMany)
@@ -118,11 +121,11 @@ class Settings
 	// св-во, позволяющее переводить поля административной панели из файла настроек
 	private $translate = [
 		// каждое поле тоже представляет собой массив, в котором можно указать два элемента (название элемента, комментарий элемента)
-		'name' => ['Название', '(Не более 120 символов)'],
-		'title' => ['SEO заголовок', '(заполнить обязательно)'],
-		'keywords' => ['Ключевые слова', '(заполнить обязательно)'],
+		'name' => ['Название'],
+		'title' => ['SEO заголовок'],
+		'keywords' => ['Ключевые слова'],
 		'content' => ['Описание', '(Текстовая часть, фотографии, картинки к описанию)'],
-		'description' => ['SEO описание', '(заполнить обязательно)'],
+		'description' => ['SEO описание'],
 		'phone' => ['Телефон'],
 		'email' => ['Электронная почта'],
 		'address' => ['Адрес'],
@@ -190,7 +193,7 @@ class Settings
 		'login' => ['empty' => true, 'trim' => true],
 		'password' => ['crypt' => true, 'empty' => true],
 		'keywords' => ['count' => 255, 'trim' => true],
-		'description' => ['count' => 255, 'trim' => true]
+		'description' => ['count' => 700, 'trim' => true]
 	];
 
 	// Объявим метод, который будет возвращать указанные выше свойства

@@ -72,6 +72,8 @@
 
 							<?php endif; ?>
 
+
+
 						</ul>
 
 						<ul style="flex-wrap:wrap" class="header__nav-list">
@@ -91,6 +93,10 @@
 
 							<?php endif; ?>
 
+							<li class="header__nav-parent">
+								<a href="<?= $this->alias('arboristics') ?>"><span style="color: #32b13b">ВАЛКА ДЕРЕВЬЕВ</span></a>
+							</li>
+
 							<?php if ($this->getController() === 'index') : ?>
 
 								<?php if (!empty($news)) : ?>
@@ -106,6 +112,7 @@
 							<?php endif; ?>
 
 						</ul>
+
 					</nav>
 				</div>
 				<div class="overlay"></div>
@@ -179,6 +186,10 @@
 						<?php endif; ?>
 
 						<li>
+							<a href="<?= $this->alias('arboristics') ?>"><span style="font-size: 23px; color: #32b13b">ВАЛКА ДЕРЕВЬЕВ</span></a>
+						</li>
+
+						<li>
 							<div class="contact" style="color: #1f2421; padding-bottom: 25px">
 								<h2 style="margin-bottom: 25px;">Контакты:</h2>
 								<div><a href="mailto:<?= $this->set['email'] ?>" style="display: inline-block; text-transform: none; padding-bottom: 20px"><?= $this->set['email'] ?></a></div>
@@ -225,7 +236,7 @@
 						<input type="text" name="name" class="input-text header__callback_input" placeholder="Ваше имя" value="<?= $this->setFormValues('name', 'userData') ?>">
 						<input type="email" name="email" class="input-text header__callback_input" placeholder="E-mail" value="<?= $this->setFormValues('email', 'userData') ?>">
 						<input type="tel" name="phone" class="input-text header__callback_input" placeholder="Телефон" value="<?= $this->setFormValues('phone', 'userData') ?>">
-						<textarea name="info" rows="5" placeholder="Укажите интересуемый товар (уголь, дрова, песок, щебень, шлак или цемент) и количество"><?= $this->setFormValues('info', 'userData') ?></textarea>
+						<textarea name="info" rows="5" placeholder="Укажите интересуемый товар (уголь, дрова, песок, щебень, шлак или цемент) или УСЛУГА ВАЛКИ ДЕРЕВЬЕВ"><?= $this->setFormValues('info', 'userData') ?></textarea>
 						<div class="header__callback_privacy">
 							<label class="checkbox">
 								<input type="checkbox" required>
@@ -239,7 +250,7 @@
 		</div>
 	</header>
 
-	<?php if ($this->getController() !== 'index') : ?>
+	<?php if ($this->getController() !== 'index' && $this->getController() !== 'arboristics') : ?>
 
 		<div class="search search-internal" style="position: relative" id="searchButton">
 			<button>
