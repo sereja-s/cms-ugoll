@@ -751,7 +751,7 @@ abstract class BaseModelMethods
 						// сохранить его в базе данных)
 						// затем обработаем результат работы ф-ии json_encode() одинарными кавычками, а также зкранируем слешами 
 						// (addslashes(json_encode($files)) и запятая в конце
-						$insert_arr['values'] .= "'" . addslashes(json_encode($files)) . "',";
+						$insert_arr['values'] .= "'" . addslashes(json_encode($file)) . "',";
 						// иначе 
 					} else {
 						// запишем как строку (обработаем $file одинарными кавычками, а также экранируем слешами (addslashes ($file)) и запятая в конце)

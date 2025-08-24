@@ -613,7 +613,7 @@ abstract class BaseAdmin extends BaseController
 		$id = false;
 		$method = 'add';
 
-		// +Выпуск №95 
+		// + Выпуск № 95 
 		if (!empty($_POST['return_id'])) {
 
 			$returnId = true;
@@ -1750,7 +1750,7 @@ abstract class BaseAdmin extends BaseController
 	}
 
 	/** 
-	 * Метод для хранения старых ссылок (+Выпуск №95 )
+	 * Метод для хранения старых ссылок (+ Выпуск №95 )
 	 * Необходимо для поисковых систем что бы избежать повторной индексации (например если название страницы изменилось, а контент остался тем же)
 	 */
 	protected function checkOldAlias($id)
@@ -1791,7 +1791,7 @@ abstract class BaseAdmin extends BaseController
 	}
 
 	/** 
-	 * Метод для проверки файлов (+Выпуск №90, 95, 104)
+	 * Метод для проверки файлов (+Выпуск №90, + 95, 104)
 	 */
 	protected function checkFiles($id)
 	{

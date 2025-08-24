@@ -19,7 +19,7 @@ const Ajax = (set) => {
 		set.url = typeof PATH !== 'undefined' ? PATH : '/';
 	}
 
-	// +Выпуск №95
+	// + Выпуск № 95
 	if (typeof set.ajax === 'undefined') {
 
 		set.ajax = true;
@@ -36,7 +36,7 @@ const Ajax = (set) => {
 
 	if (typeof set.data !== 'undefined' && set.data) {
 
-		// +Выпуск №95
+		// + Выпуск № 95
 		if (typeof set.processData !== 'undefined' && !set.processData) {
 
 			body = set.data;
@@ -45,6 +45,7 @@ const Ajax = (set) => {
 
 			for (let i in set.data) {
 
+				// + выпуск №95
 				if (set.data.hasOwnProperty(i)) {
 
 					body += '&' + i + '=' + set.data[i];
@@ -95,10 +96,12 @@ const Ajax = (set) => {
 		if (typeof set.headers !== 'undefined' && set.headers) {
 
 			for (let i in set.headers) {
-				//+Выпуск №95
+
+				// + Выпуск № 95
 				if (set.headers.hasOwnProperty(i)) {
 
 					// установим заголовки для объекта: XMLHttpRequest На вход принимает: 1- имя заголока, 2-значение заголовка
+					// + выпуск № 95
 					xhr.setRequestHeader(i, set.headers[i]);
 
 
@@ -108,11 +111,11 @@ const Ajax = (set) => {
 			}
 		}
 
-		// +выпуск №95
+		// + выпуск № 95
 		if (!contentType && (typeof set.contentType === 'undefined' || set.contentType))
 			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 
-		// +выпуск №95
+		// + выпуск № 95
 		if (set.ajax)
 			// сформируем и отправим заголовок
 			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -155,7 +158,9 @@ const Ajax = (set) => {
 }
 
 
-/** Метод проверит не пуст ли массив */
+/** 
+ * Метод проверит не пуст ли массив (выпуск № 94) 
+ */
 function isEmpty(arr) {
 
 	// если цикл начнёт выполняться, значит массив не пуст
@@ -171,7 +176,7 @@ function isEmpty(arr) {
 
 
 /**
- *   Метод вывода сообщения об ошибке (Выпуск №96)
+ *   Метод вывода сообщения об ошибке (Выпуск №96) 
  */
 function errorAlert() {
 

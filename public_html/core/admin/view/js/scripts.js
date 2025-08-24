@@ -42,6 +42,7 @@ createFile()
  * Метод создания файла (добавление картинки (по одной и галереи)) Выпуск №92,93,94,98
  */
 function createFile() {
+	//debugger;
 	// Выпуск №92
 	// Добавление квадратиков в галерее админки Добавляем возможность удаления новых изображений галереи до сохранения
 
@@ -52,6 +53,7 @@ function createFile() {
 	// элементы документа, которые соответствуют указанному селектору Его свойство: length может быть равно нулю)
 	let files = document.querySelectorAll('input[type=file]')
 
+	//  массив для работы с файлами, т.к. непосредственно из files мы можем только читать
 	let fileStore = [];
 
 	// проверим еть ли что то в массиве: NodeListfiles
@@ -111,7 +113,7 @@ function createFile() {
 
 				//console.log(this.files)
 
-				// атрибут name (массив) для каждого input[type=file] сохраним в переменную
+				// атрибут name здесь равен gallary_img[] (массив) для каждого input[type=file] сохраним в переменную
 				let fileName = item.name
 
 				// что бы удалять элементы (с изображениями) которые не были сохранены (т.е. ещё не попали в БД), повесим на
@@ -148,7 +150,7 @@ function createFile() {
 							// того что лежит в переменной: ${attributeName}) в обратных кавычках, 2- значение атрибута: elId
 							container[i].setAttribute(`data-deleteFileId-${attributeName}`, elId);
 
-							// добавив 3-им параметром: колбэк ф-ию (Выпуск №103), получаем возможность сортировки картинок сразу после добавления
+							// добавив 3-им параметром: колбэк ф-ию (Выпуск № 103), получаем возможность сортировки картинок сразу после добавления
 							showImage(this.files[i], container[i], function () {
 
 								// на элементе: parentContainer вызовем сортировку (т.е. ф-ию: sortable())
@@ -196,9 +198,11 @@ function createFile() {
 		})
 
 
-		// Выпуск №94 (отправка данных на сервер)
+		// Выпуск № 94 (отправка данных на сервер)
 		// на вход querySelector() передаём идентификатор формы (вернёт null или объект: Element)
 		let form = document.querySelector('#main-form')
+
+		//debugger;
 
 		if (form) {
 
@@ -221,20 +225,21 @@ function createFile() {
 
 					e.preventDefault();
 
-					// создадим объект FormData (элемент js-формы (эквивалентной форме HTML)) Получим форму в которой мы находимся: form (т.е. this) при этом JS заполнит её (нужные св-ва)
+					// создадим объект FormData (элемент js-формы эквивалентный форме HTML) Получим форму в которой мы находимся: form (передав в качестве параметра: this) при этом JS создаст у себя в памяти все эдементы нашей формы и сохранит данные заполненные в её поля
 					let forData = new FormData(this);
 
+					// мы можем посмотреть их (например значение атрибута: name) после заполнения и сохранения данных о текущем товаре
 					//console.log(forData.get('name'))
 
 					for (let i in fileStore) {
 
-						// если i- это его собственное свойство (которое мы туда добавляем)
+						// если i является его собственное свойство (которое мы туда добавили- здесь это файл изображения)
 						if (fileStore.hasOwnProperty(i)) {
 
 							// очистим св-во в форме (что бы на сервер не прилетали не корректные данные)
 							forData.delete(i);
 
-							// получим чистое имя свойства (без квадратных скобок в конце)
+							// получим чистое имя свойства (без квадратных скобок в конце) -> было 'gallery_img[]' станет 'gallery_img'
 							let rowName = i.replace(/[\[\]]/g, '');
 
 							// пройдёмся в цикле по i-му элементу массива
@@ -255,17 +260,16 @@ function createFile() {
 					// добавим в объект ключ: ajax, со значением: editData
 					forData.append('ajax', 'editData');
 
-					// сформируем данные для вызова (Выпуск №95)
+					// сформируем данные для вызова (+ Выпуск № 95)
 					// обращаемся к объекту: Ajax и передадим ему св-ва, которые нам нужны (настройка объекта)
 					Ajax({
-						url: this.getAttribute('action'), // есть в нашей форме (в action)
+						url: this.getAttribute('action'), // указан в нашей форме (в action)
 						type: 'post',
-						data: forData, // сформировали переменную: data, в которую отправим объект: forData
+						data: forData, // сформировали свойство: data, в качестве значения укажем объект: forData
 						processData: false,
 						contentType: false
 					}).then(res => {
-
-						// пришлём результат	
+						// здесь обработаем полученный результат: res	
 						try {
 
 							res = JSON.parse(res);
@@ -295,15 +299,23 @@ function createFile() {
 
 			//console.log(container)
 
+			//debugger;
+
 			// на контейнер повесим событие: click
 			container.addEventListener('click', function () {
 
-				// метод: remove() удаляет элемент со всеми его обработчиками событий
+				let isDel = confirm("Удалить это изображение из галереи изображений ?");
+
+				if (isDel) {
+
+					// метод: remove() удаляет элемент со всеми его обработчиками событий
 				this.remove();
 
 				// обращаемся к ячейке: fileStore[fileName][elId] и удаляем её с помощью инструкции: delete
 				// (при этом элемента в массиве не будет, но длина массива не изменится)
 				delete fileStore[fileName][elId];
+					
+				}
 
 				//console.log(fileStore);
 			})
@@ -338,7 +350,7 @@ function createFile() {
 				container.querySelector('img').setAttribute('src', e.target.result);
 
 				// уберём класс у контейнера (обращаемся к объекту: classList, его методу: remove() На вход он принимает 
-				// строку с названием класса)
+				// строку с названием класса) - выпуск-93
 				container.classList.remove('empty_container');
 
 				// проверка: если в calcback что то пришло, то вызовем ф-ию: calcback()
@@ -413,7 +425,7 @@ function createFile() {
 changeMenuPosition();
 
 /**
- * Метод асинхронного пересчета позиций вывода данных при смене родительской категории (Выпуск №96)
+ * Метод асинхронного пересчета позиций вывода данных при смене родительской категории (Выпуск № 96)
  */
 function changeMenuPosition() {
 
@@ -431,7 +443,7 @@ function changeMenuPosition() {
 		// если имеются parent_id и menu_position
 		if (selectParent && selectPosition) {
 
-			// то получим дефолтные (по умолчанию) значение переменных: selectParent и selectPosition:
+			// то получим дефолтные (по умолчанию) значения переменных: selectParent и selectPosition:
 
 			let defaultParent = selectParent.value;
 			// символ: +  означает приведение значения к числу
@@ -472,7 +484,7 @@ function changeMenuPosition() {
 				}).then(res => {
 					//console.log(res);
 
-					// Далее опишем необходимые действия
+					// Далее опишем необходимые действия после получения результата
 
 					// приведём переменную к числу (а не строке)
 					res = +res;
@@ -507,7 +519,7 @@ function changeMenuPosition() {
 					// теперь можно удалить selectPosition (необходимо)
 					selectPosition.remove();
 
-					// что бы отрабатывали все проверки, в переменную: selectPosition надо сохранить новую переменную: newSelect
+					// но что бы отрабатывали все проверки (после удаления текущего selectPosition), в переменную: в selectPosition надо сохранить значение новую переменную: newSelect (в которой хранится ыelect, созданsq нами выше)
 					selectPosition = newSelect;
 				})
 			})

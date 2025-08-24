@@ -5,7 +5,7 @@ namespace core\admin\controller;
 use libraries\FileEdit;
 
 /** 
- * Ajax-контроллер админки (Выпуск №67,95) 
+ * Ajax-контроллер админки (Выпуск №67, + 95) 
  */
 class AjaxController extends BaseAdmin
 {
@@ -13,13 +13,13 @@ class AjaxController extends BaseAdmin
 	{
 		//return 'ADMIN AJAX';
 
-		// Выпуск №69 (+Выпуск №96)
+		// Выпуск №69 (+ Выпуск № 96)
 		if (isset($this->ajaxData['ajax'])) {
 
-			// +Выпуск №95 
+			// + Выпуск № 95 
 			$this->execBase();
 
-			// +Выпуск №96
+			// + Выпуск № 96
 			foreach ($this->ajaxData as $key => $item) {
 
 				$this->ajaxData[$key] = $this->clearStr($item);
@@ -30,25 +30,25 @@ class AjaxController extends BaseAdmin
 					return (new CreatesitemapController())->inputData($this->ajaxData['links_counter'], false);
 					break;
 
-					// Выпуск №95- асинхронная отправка формы на сервер
+				// Выпуск № 95- асинхронная отправка формы на сервер
 				case 'editData':
-					// сформируем $_POST['return_id']
+					// установим в ячейку $_POST['return_id'] значение true
 					$_POST['return_id'] = true;
 					$this->checkPost();
 					return json_encode(['success' => 1]);
 					break;
 
-					// Выпуск №96- асинхронный пересчет позиций вывода данных при смене родительской категории
+				// Выпуск №96- асинхронный пересчет позиций вывода данных при смене родительской категории
 				case 'change_parent':
 					return $this->changeParent();
 					break;
 
-					// Выпуск №105 php | js | поиск по административной панели
+				// Выпуск №105 php | js | поиск по административной панели
 				case 'search':
 					return $this->search();
 					break;
 
-					// Выпуск №107- осуществим загрузку файлов на сервер, добавляемых через визуальный редактор TinyMce 5
+				// Выпуск №107- осуществим загрузку файлов на сервер, добавляемых через визуальный редактор TinyMce 5
 				case 'wyswyg_file':
 					$a = 1;
 					$fileEdit = new FileEdit();

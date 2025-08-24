@@ -50,7 +50,7 @@ abstract class BaseController
 	protected $quantities;
 
 	/** 
-	 * свойство, в которое будем заносить данные при работе с ajax (Выпуск №96)
+	 * свойство, в которое будем заносить данные при работе с ajax (+ Выпуск № 96)
 	 */
 	protected $ajaxData;
 

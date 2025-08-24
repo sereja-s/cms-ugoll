@@ -32,7 +32,7 @@ class BaseAjax extends BaseController
 		}
 
 
-		// +Выпуск №95 (асинхронная отправка формы на сервер)
+		// + Выпуск № 95 (асинхронная отправка формы на сервер)
 		// заменим слеши на экранированные (где менять- передадим 3-им параметром)
 		$httpReferer = str_replace('/', '\/', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . PATH . $route['admin']['alias']);
 
@@ -51,14 +51,15 @@ class BaseAjax extends BaseController
 
 		$ajax = new $controller;
 
-		// (+Выпуск №96)
+		// (+ Выпуск №96)
 		// данные будем заносить в св-во: ajaxData 
 		$ajax->ajaxData = $data;
 
-		// (+Выпуск №96)
+		// (+ Выпуск № 96)
 		// в переменную сохраним результат работы метода: ajax()
 		$res = $ajax->ajax();
 
+		// обработаем результат работы метода: ajax()
 		if (is_array($res) || is_object($res)) {
 
 			$res = json_encode($res);
